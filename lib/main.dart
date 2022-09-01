@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:what_to_watch/model/genres_model.dart';
 import 'package:what_to_watch/pages/pages.dart';
 import 'package:what_to_watch/providers/genre_provider.dart';
 import 'package:what_to_watch/providers/movie_provider.dart';

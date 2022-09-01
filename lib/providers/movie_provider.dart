@@ -3,9 +3,9 @@ import 'package:what_to_watch/model/models.dart';
 import 'package:http/http.dart' as http;
 
 class MovieProvider extends ChangeNotifier {
-  String _baseUrl = 'api.themoviedb.org';
-  String _APIkey = "430d1f93728146cc054a56d4f54dc2ee";
-  String _language = 'es-ES';
+  final String _baseUrl = 'api.themoviedb.org';
+  final String _apikey = "430d1f93728146cc054a56d4f54dc2ee";
+  final String _language = 'es-ES';
 
   List<Result> allMovies = [];
   List<IndMovie> indMovies = [];
@@ -20,7 +20,7 @@ class MovieProvider extends ChangeNotifier {
 
   getMovieDiscovery({page = 1, withGenres}) async {
     var url = Uri.https(_baseUrl, '3/discover/movie', {
-      'api_key': _APIkey,
+      'api_key': _apikey,
       'language': _language,
       'with_genres': withGenres,
       'page': "$page",
@@ -44,14 +44,14 @@ class MovieProvider extends ChangeNotifier {
   getMovieByID(id) async {
     IndMovie? returnElement;
 
-    indMovies.forEach((element) {
+    for (var element in indMovies) {
       if (element.id == id) {
         returnElement = element;
       }
-    });
+    }
     if (returnElement == null) {
       var url = Uri.https(_baseUrl, '3/movie/$id', {
-        'api_key': _APIkey,
+        'api_key': _apikey,
         'language': _language,
       });
 

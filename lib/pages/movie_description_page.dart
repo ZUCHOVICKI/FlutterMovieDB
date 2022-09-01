@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart';
 import 'package:what_to_watch/model/models.dart';
 
 class MovieDescriptionScreen extends StatelessWidget {
@@ -47,7 +46,7 @@ class _CustomAppBar extends StatelessWidget {
           child: Text(
             movie.title,
             // movie.title,
-            style: TextStyle(fontSize: 16),
+            style: const TextStyle(fontSize: 16),
           ),
         ),
         background: FadeInImage(

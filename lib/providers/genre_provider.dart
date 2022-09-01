@@ -3,9 +3,9 @@ import 'package:what_to_watch/model/models.dart';
 import 'package:http/http.dart' as http;
 
 class GenreProvider extends ChangeNotifier {
-  String _baseUrl = 'api.themoviedb.org';
-  String _APIkey = "430d1f93728146cc054a56d4f54dc2ee";
-  String _language = 'es-ES';
+  final String _baseUrl = 'api.themoviedb.org';
+  final String _apikey = "430d1f93728146cc054a56d4f54dc2ee";
+  final String _language = 'es-ES';
 
   List<Genre> allGenres = [];
   // static List<Genre> _selectedGenres = [];
@@ -20,7 +20,7 @@ class GenreProvider extends ChangeNotifier {
 
   getGenres() async {
     var url = Uri.https(_baseUrl, '3/genre/movie/list', {
-      'api_key': _APIkey,
+      'api_key': _apikey,
       'language': _language,
     });
 
