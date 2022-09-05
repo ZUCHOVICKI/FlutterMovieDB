@@ -13,7 +13,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final genreProvider = Provider.of<GenreProvider>(context);
     final movieProvider = Provider.of<MovieProvider>(context);
-    genreProvider.getGenres();
+    // genreProvider.getGenres();
     final List<Genre> testitems = genreProvider.allGenres;
 
     return Scaffold(
@@ -24,7 +24,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             testitems.isEmpty
-                ? const CircularProgressIndicator()
+                ? const Center(child: CircularProgressIndicator())
                 : MultiSelectDialogField(
                     // initialValue: genreProvider.selectedGenres
                     //     .map((e) => MultiSelectItem(e, e.name))
@@ -47,8 +47,6 @@ class HomeScreen extends StatelessWidget {
                       values.clear();
                       movieProvider.getMovieDiscovery(withGenres: ids);
 
-                      print(movieProvider.allMovies);
-
                       Navigator.pushNamed(context, 'movies',
                           arguments: arguments);
                     },
@@ -58,9 +56,9 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class test {
+class Test {
   final int id;
   final String name;
 
-  test(this.id, this.name);
+  Test(this.id, this.name);
 }
